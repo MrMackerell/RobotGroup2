@@ -5,7 +5,7 @@ void readColorSensor() {
   //Five samples will be taken
   const int samples = 5;
 
-  long sumRed = 0; sumGreen = 0, sumBlue = 0, sumWhite = 0;//Set the values of the readings to the default
+  long sumRed = 0; sumGreen = 0; sumBlue = 0; sumWhite = 0;//Set the values of the readings to the default
 
   //Take samples to find an average reading (most accurate form of colour sensor reading)
   for(int i = 0; i < samples; i++) {
