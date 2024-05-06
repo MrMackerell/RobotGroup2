@@ -19,6 +19,12 @@ unsigned long irSensorMillis = 0; //Timer to track the last report of the IR sen
 
 unsigned long colorSensorMillis = 0; //Timer to track the last report of the color sensors
 
+//PHASE 3:
+//Define the motors
+#define MOTOR_PIN1 3
+#define MOTOR_PIN2 5
+#define MOTOR_PIN3 6
+#define MOTOR_PIN4 9
 
 void setup() {
   //PHASE 1:
@@ -28,6 +34,13 @@ void setup() {
   pinMode(IR_3, INPUT);
   pinMode(IR_4, INPUT);
   Serial.begin(115200);
+
+  //PHASE 3:
+  //Set up pinmodes for the motors
+  pinMode(MOTOR_PIN1, OUTPUT);
+  pinMode(MOTOR_PIN2, OUTPUT);
+  pinMode(MOTOR_PIN3, OUTPUT);
+  pinMode(MOTOR_PIN4, OUTPUT);
 
 }
 
@@ -48,4 +61,20 @@ void loop() {
     colorSensorMillis = currentMillis;
     readColorSensor();
   }
+
+  //PHASE 4:
+  /*Test motor control by creating a routine that moves
+  the robot forward for 1 second and then turns 90 degrees right.*/
+  motorControl(255, 255); //Go straight forward
+  delay(1000);
+  motorControl(0, 0); //Stop momentarily
+  delay(100);
+  motorControl(255, -255) //Turn right
+  delay(500);
+  motorControl(0, 0); //Stop momentarily
+  delay(100);
+  
+  //You can try and make different shapes using the basic code from Phase 4 :)
+  //motorControl(-255, 255); This is to turn left!
+  //delay(100);
 }
