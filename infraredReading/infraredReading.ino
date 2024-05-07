@@ -69,7 +69,7 @@ void loop() {
   delay(1000);
   motorControl(0, 0); //Stop momentarily
   delay(100);
-  motorControl(255, -255) //Turn right
+  motorControl(255, 0) //Turn right
   delay(500);
   motorControl(0, 0); //Stop momentarily
   delay(100);
