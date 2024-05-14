@@ -29,6 +29,11 @@ unsigned long colorSensorMillis = 0; //Timer to track the last report of the col
 #define MOTOR_PIN3 6
 #define MOTOR_PIN4 9
 
+//PHASE 4:
+//Define pins
+#define TRIG_PIN 10
+#define ECHO_PIN 11
+
 void setup() {
   //PHASE 1:
   //Set the Infrared Sensors as input 
@@ -45,6 +50,10 @@ void setup() {
   pinMode(MOTOR_PIN3, OUTPUT);
   pinMode(MOTOR_PIN4, OUTPUT);
 
+  //PHASE 4:
+  //Set up pinmodes for the Ultrasonic Sensor
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
 }
 
 void loop() {
@@ -67,7 +76,7 @@ void loop() {
 
   //PHASE 4:
   /*Test motor control by creating a routine that moves
-  the robot forward for 1 second and then turns 90 degrees right.*/
+  the robot forward for 1 second and then turns 90 degrees right.
   motorControl(255, 255); //Go straight forward
   delay(1000);
   motorControl(0, 0); //Stop momentarily
@@ -75,12 +84,12 @@ void loop() {
   motorControl(255, -255); //Turn right
   delay(600);
   motorControl(0, 0); //Stop momentarily
-  delay(100);
+  delay(100);*/
   
   //You can try and make different shapes using the basic code from Phase 4 :)
   //motorControl(-255, 255); This is to turn left!
   //delay(100);
 
   //PHASE 5:
-  //robotLogic();
+  robotLogic();
 }
