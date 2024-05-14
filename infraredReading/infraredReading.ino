@@ -72,8 +72,8 @@ void loop() {
   delay(1000);
   motorControl(0, 0); //Stop momentarily
   delay(100);
-  motorControl(255, 0) //Turn right
-  delay(500);
+  motorControl(255, -255); //Turn right
+  delay(600);
   motorControl(0, 0); //Stop momentarily
   delay(100);
   
@@ -82,5 +82,5 @@ void loop() {
   //delay(100);
 
   //PHASE 5:
-  robotLogic();
+  //robotLogic();
 }
