@@ -1,3 +1,6 @@
+//PHASE 5:
+String currentState = "Null";
+
 //PHASE 1:
 //Create pin definitions for the Infrared Sensors
 #define IR_1 4
@@ -77,4 +80,7 @@ void loop() {
   //You can try and make different shapes using the basic code from Phase 4 :)
   //motorControl(-255, 255); This is to turn left!
   //delay(100);
+
+  //PHASE 5:
+  robotLogic();
 }
