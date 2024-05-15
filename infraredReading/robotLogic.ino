@@ -25,9 +25,9 @@ void motorLogic() {
     motorControl(200, 150); //Turn slight right
   }
   } else if(IRvalues[0] == 0) {
-    motorControl(-255, 255); //Turn left
+    motorControl(0, 150); //Turn left
   } else if(IRvalues[3] == 0) {
-    motorControl(255, -255); //Turn right
+    motorControl(150, 0); //Turn right
   }
 
 }
