@@ -24,9 +24,9 @@ void motorLogic() {
   } else if (currentState == "Right") {
     motorControl(200, 150); //Turn slight right
   }
-  } else if(IRvalues[0] == 0) {
+  } else if(IRvalues[0] == 0) { //Check if the left most sensor senses the line 
     motorControl(0, 150); //Turn left
-  } else if(IRvalues[3] == 0) {
+  } else if(IRvalues[3] == 0) { //Check if the right most sensor senses the line
     motorControl(150, 0); //Turn right
   }
 
