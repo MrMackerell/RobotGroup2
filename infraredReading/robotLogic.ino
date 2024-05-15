@@ -24,6 +24,10 @@ void motorLogic() {
   } else if (currentState == "Right") {
     motorControl(200, 150); //Turn slight right
   }
+  } else if(IRvalues[0] == 0) {
+    motorControl(-255, 255); //Turn left
+  } else if(IRvalues[3] == 0) {
+    motorControl(255, -255); //Turn right
   }
 
 }
