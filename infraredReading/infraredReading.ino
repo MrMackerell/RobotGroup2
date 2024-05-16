@@ -31,8 +31,8 @@ unsigned long colorSensorMillis = 0; //Timer to track the last report of the col
 
 //PHASE 4:
 //Define pins
-// #define TRIG_PIN 10
-// #define ECHO_PIN 11
+#define TRIG_PIN 10
+#define ECHO_PIN 11
 
 void setup() {
   //PHASE 1:
@@ -52,8 +52,8 @@ void setup() {
 
   //PHASE 4:
   //Set up pinmodes for the Ultrasonic Sensor
-  // pinMode(TRIG_PIN, OUTPUT);
-  // pinMode(ECHO_PIN, INPUT);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
 }
 
 void loop() {
@@ -73,6 +73,11 @@ void loop() {
     colorSensorMillis = currentMillis;
     readColorSensor();
   }
+
+  //PHASE 4:
+  //Read the ultrasonic sensor
+  ultrasonicSensor();
+  delay(500);
 
   //PHASE 4:
   /*Test motor control by creating a routine that moves
