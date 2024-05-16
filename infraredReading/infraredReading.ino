@@ -1,5 +1,13 @@
 //PHASE 5:
 String currentState = "Null";
+String oldCurrentState = "Null";
+
+//PHASE 6:
+//Turning Logic
+String turnDirection = "";
+String lastTurnDirection = "";
+bool isTurning = false;
+bool wallDetected = false;
 
 //PHASE 1:
 //Create pin definitions for the Infrared Sensors
