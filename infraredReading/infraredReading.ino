@@ -8,6 +8,7 @@ String turnDirection = "";
 String lastTurnDirection = "";
 bool isTurning = false;
 bool wallDetected = false;
+long currentDistance = 0;
 
 //PHASE 1:
 //Create pin definitions for the Infrared Sensors
