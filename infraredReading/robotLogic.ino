@@ -11,12 +11,13 @@ unsigned long firstDetectionTime1 = 0;               //Time of first detection f
 unsigned long firstDetectionTime4 = 0;               //Time of first detection for sensor 4.
 
 void robotLogic() {
+  turnLogic();
   motorLogic();
 }
 
 void turnLogic() {
   int* IRvalues;
-  IRvalues = readInfrared; //This will point to the array of sensor values
+  IRvalues = readInfrared(); //This will point to the array of sensor values
 
   //Check to see if a wall has been detected
   if(currentDistance < 8 && wallDetected == false) {
@@ -71,14 +72,6 @@ void turnLogic() {
     }
    } 
 }
-
-void motorLogic() {
-  int* IRvalues;
-  IRvalues = readInfrared();
-
-  
-}
-
 void motorLogic() {
 
 
@@ -88,7 +81,7 @@ void motorLogic() {
 
  // Apply robot logic based on sensor readings and turning flags
  if (!isTurning && !wallDetected) {
-if (IRvalues[1] == 0 && IRvalues[2] == 0) {
+if (IRvalues[1] == 1 && IRvalues[2] == 1) {
     motorControl(200, 200);  //Move the robot straight forward
     currentState = "Forward";
   } else if (IRvalues[1] == 0 && IRvalues[2] == 1) {

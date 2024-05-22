@@ -17,6 +17,7 @@ long currentDistance = 0;
 #define IR_3 8
 #define IR_4 12
 unsigned long irSensorMillis = 0; //Timer to track the last report of the IR sensors
+unsigned long currentMillis = millis(); //Get the current run time in milliseconds
 
 //PHASE 2:
 //Include the colour sensor library
@@ -67,9 +68,6 @@ void setup() {
 
 void loop() {
   //PHASE 1:
-  //Get the current run time in milliseconds
-  unsigned long currentMillis = millis();
-
   //Check the states of the IR sensors every 500ms
   if (currentMillis - irSensorMillis >= 500) {
     irSensorMillis = currentMillis;
@@ -87,22 +85,6 @@ void loop() {
   //Read the ultrasonic sensor
   ultrasonicSensor();
   delay(500);
-
-  //PHASE 4:
-  /*Test motor control by creating a routine that moves
-  the robot forward for 1 second and then turns 90 degrees right.
-  motorControl(255, 255); //Go straight forward
-  delay(1000);
-  motorControl(0, 0); //Stop momentarily
-  delay(100);
-  motorControl(255, -255); //Turn right
-  delay(600);
-  motorControl(0, 0); //Stop momentarily
-  delay(100);*/
-  
-  //You can try and make different shapes using the basic code from Phase 4 :)
-  //motorControl(-255, 255); This is to turn left!
-  //delay(100);
 
   //PHASE 5:
   robotLogic();
