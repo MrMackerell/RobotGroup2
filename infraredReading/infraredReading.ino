@@ -8,7 +8,7 @@ String turnDirection = "";
 String lastTurnDirection = "";
 bool isTurning = false;
 bool wallDetected = false;
-long currentDistance = 0;
+int currentDistance = 0;
 
 //PHASE 1:
 //Create pin definitions for the Infrared Sensors
@@ -83,8 +83,7 @@ void loop() {
 
   //PHASE 4:
   //Read the ultrasonic sensor
-  ultrasonicSensor();
-  delay(500);
+  readUltrasonicSensor();
 
   //PHASE 5:
   robotLogic();
