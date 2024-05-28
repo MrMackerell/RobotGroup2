@@ -16,8 +16,8 @@ int currentDistance = 0;
 #define IR_2 7
 #define IR_3 8
 #define IR_4 12
-unsigned long irSensorMillis = 0; //Timer to track the last report of the IR sensors
-unsigned long currentMillis = millis(); //Get the current run time in milliseconds
+unsigned long irSensorMillis = 0;        //Timer to track the last report of the IR sensors
+unsigned long currentMillis = millis();  //Get the current run time in milliseconds
 
 //PHASE 2:
 //Include the colour sensor library
@@ -30,7 +30,9 @@ unsigned long currentMillis = millis(); //Get the current run time in millisecon
 #define COLOR_3 A3
 #define COLOR_OUT A4
 
-unsigned long colorSensorMillis = 0; //Timer to track the last report of the color sensors
+unsigned long colorSensorMillis = 0;  //Timer to track the last report of the color sensors
+unsigned long ultrasonicMillis = 0;   //Timer to track the last report of the color sensors
+
 
 //PHASE 3:
 //Define the motors
@@ -44,9 +46,15 @@ unsigned long colorSensorMillis = 0; //Timer to track the last report of the col
 #define TRIG_PIN 10
 #define ECHO_PIN 11
 
+#define LED_R 25
+#define LED_G 26
+#define LED_B 27
+
+#include<WiFiNINA.h>
+
 void setup() {
   //PHASE 1:
-  //Set the Infrared Sensors as input 
+  //Set the Infrared Sensors as input
   pinMode(IR_1, INPUT);
   pinMode(IR_2, INPUT);
   pinMode(IR_3, INPUT);
@@ -64,27 +72,36 @@ void setup() {
   //Set up pinmodes for the Ultrasonic Sensor
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
+
+  //Setup onboard RGB LED pins
+  WiFiDrv::pinMode(LED_R, OUTPUT); //define RED LED
+  WiFiDrv::pinMode(LED_G, OUTPUT); //define RED LED
+  WiFiDrv::pinMode(LED_B, OUTPUT); //define RED LED
 }
 
 void loop() {
+
+
+
   //PHASE 1:
   //Check the states of the IR sensors every 500ms
-  if (currentMillis - irSensorMillis >= 500) {
-    irSensorMillis = currentMillis;
-    readInfrared();
-  }
+  // if (currentMillis - irSensorMillis >= 500) {
+  //   irSensorMillis = currentMillis;
+  //   readInfrared();
+  // }
 
   //PHASE 2:
   //Read the color sensor
-  if(currentMillis - colorSensorMillis >= 250) {
-    colorSensorMillis = currentMillis;
-    readColorSensor();
+  // if(currentMillis - colorSensorMillis >= 250) {
+  //   colorSensorMillis = currentMillis;
+  //   readColorSensor();
+  // }
+
+
+  if (currentMillis - ultrasonicMillis >= 20) {
+    ultrasonicMillis = currentMillis;
+    readUltrasonicSensor();
   }
 
-  //PHASE 4:
-  //Read the ultrasonic sensor
-  readUltrasonicSensor();
-
-  //PHASE 5:
   robotLogic();
 }

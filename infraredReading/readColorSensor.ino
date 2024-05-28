@@ -31,4 +31,9 @@ void readColorSensor() {
   Serial.println(avgBlue);
   Serial.print("W (clear) = ");
   Serial.println(avgWhite);
+
+  WiFiDrv::analogWrite(25, 255);   //GREEN
+  WiFiDrv::analogWrite(26, 255);   //RED
+  WiFiDrv::analogWrite(27, 255);   //BLUE
+
 }
