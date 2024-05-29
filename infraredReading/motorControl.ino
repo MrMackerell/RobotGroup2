@@ -1,6 +1,6 @@
 //Global speed multipliers for each motor
-float motor1Multiplier = 0.5;
-float motor2Multiplier = 0.5;
+float motor1Multiplier = 1.0;
+float motor2Multiplier = 1.0;
 
 
 
