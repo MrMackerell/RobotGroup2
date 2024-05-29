@@ -8,7 +8,7 @@ String turnDirection = "";
 String lastTurnDirection = "";
 bool isTurning = false;
 bool wallDetected = false;
-int currentDistance = 0;
+int currentDistance = 1000;
 
 //PHASE 1:
 //Create pin definitions for the Infrared Sensors
@@ -98,10 +98,10 @@ void loop() {
   // }
 
 
-  if (currentMillis - ultrasonicMillis >= 20) {
-    ultrasonicMillis = currentMillis;
+  //if (currentMillis - ultrasonicMillis >= 20) {
+    //ultrasonicMillis = currentMillis;
     readUltrasonicSensor();
-  }
+  //}
 
   robotLogic();
 }
