@@ -24,11 +24,11 @@
 #include <tcs3200.h>
 
 // //Create pin definitions for the colour sensor using analog pins
-// #define COLOR_0 A0
-// #define COLOR_1 A1
-// #define COLOR_2 A2
-// #define COLOR_3 A3
-// #define COLOR_OUT A4
+#define COLOR_0 A0
+#define COLOR_1 A1
+#define COLOR_2 A2
+#define COLOR_3 A3
+#define COLOR_OUT A4
 
 // unsigned long colorSensorMillis = 0;  //Timer to track the last report of the color sensors
 // unsigned long ultrasonicMillis = 0;   //Timer to track the last report of the color sensors
