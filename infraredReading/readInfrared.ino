@@ -1,4 +1,4 @@
-int* readInfrared() {
+//int* readInfrared() {
   static int IRvalue[4]; //Static array to hold the IR sensor values
 
 
