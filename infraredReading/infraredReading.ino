@@ -81,18 +81,18 @@ void setup() {
 
 void loop() {
 
-    currentMillis = millis() //Reset currentMillis every loop using the millis() function
+    currentMillis = millis(); //Reset currentMillis every loop using the millis() function
 
 
-  PHASE 1:
-  Check the states of the IR sensors every 500ms
+  //PHASE 1:
+  //Check the states of the IR sensors every 500ms
   if (currentMillis - irSensorMillis >= 500) {
     irSensorMillis = currentMillis;
     readInfrared();
   }
 
-  PHASE 2:
-  Read the color sensor
+  //PHASE 2:
+  //Read the color sensor
   if(currentMillis - colorSensorMillis >= 250) {
     colorSensorMillis = currentMillis;
     readColorSensor();
