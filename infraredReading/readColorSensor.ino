@@ -12,7 +12,7 @@ void captureColorReadings(int& avgRed, int& avgGreen, int& avgBlue, int& avgWhit
     sumGreen += tcs.colorRead('g');
     sumBlue += tcs.colorRead('b');
     sumWhite += tcs.colorRead('c');
-    delay(100); // Short delay between samples
+    //delay(100); Short delay between samples
   }
 
   avgRed = sumRed / samples;
@@ -36,7 +36,7 @@ void readColorSensor() {
   // Set thresholds based on your calibration values
   if (avgRed > 20 && avgGreen < 10 && avgBlue < 15) {
     detectedColor = "Red";
-  } else if (avgRed < 10 && avgGreen > 10 && avgBlue > 10) {
+  } else if (avgRed < 15 && avgGreen > 15 && avgBlue < 18) {
     detectedColor = "Green";
   } else if (avgRed < 10 && avgGreen < 15 && avgBlue > 15) {
     detectedColor = "Blue";

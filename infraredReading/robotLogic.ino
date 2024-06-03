@@ -1,5 +1,5 @@
 bool initialForwardMotion = false;                //Flag to initiate forward motion at the start of a turn.
-const unsigned long initialMotionDuration = 350;  //Duration for initial forward motion in milliseconds.
+const unsigned long initialMotionDuration = 400;  //Duration for initial forward motion in milliseconds.
 
 unsigned long turnStartTime = 0;                //Time when the turn starts.
 const unsigned long initialTurnDuration = 600;  //Duration for initial turn when wall detected before IR sensor activates
@@ -39,12 +39,12 @@ void turnLogic() {
 
 
    // Check the outer two sensors to see if they are triggered, and start the threshold timer
-   if (IRvalues[3] == 1 && firstDetectionTime4 == 0) {
-     firstDetectionTime4 = currentMillis;
+   if (IRvalues[3] == 1 && firstDetectionTime1 == 0) {
+     firstDetectionTime1 = currentMillis;
      Serial.println("Detected Left Sensor");
    }
-   if (IRvalues[0] == 1 && firstDetectionTime1 == 0) {
-     firstDetectionTime1 = currentMillis;
+   if (IRvalues[0] == 1 && firstDetectionTime4 == 0) {
+     firstDetectionTime4 = currentMillis;
      Serial.println("Detected Right Sensor");
    }
 
@@ -178,7 +178,7 @@ if (IRvalues[1] == 1 && IRvalues[2] == 1) {
        wallDetected = false;
        currentState = "Forward";
      } else {
-       motorControl(-turnSpeed, turnSpeed);  // Continue turning left
+       motorControl(-turnSpeed - 40, turnSpeed);  // Continue turning left
        currentState = "Turning Left - No Line Yet Detected";
      }
    }
