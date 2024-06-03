@@ -36,7 +36,7 @@ void readColorSensor() {
   // Set thresholds based on your calibration values
   if (avgRed > 20 && avgGreen < 10 && avgBlue < 15) {
     detectedColor = "Red";
-  } else if (avgRed < 15 && avgGreen > 15 && avgBlue < 18) {
+  } else if (avgRed < 18 && avgGreen > 27 && avgBlue < 24) {
     detectedColor = "Green";
   } else if (avgRed < 10 && avgGreen < 15 && avgBlue > 15) {
     detectedColor = "Blue";
